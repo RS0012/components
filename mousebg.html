@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #pointer{
+            background-color: yellowgreen;
+            width: 3vw;
+            height: 3vw;
+            position: absolute;
+            border-radius: 50%;
+        }
+        #pointerblur{
+            filter: blur(90px);
+            background-color: rgb(130, 243, 0);
+            width: 26vw;
+            height: 26vw;
+            border-radius: 50%;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <div id="pointer"></div>
+    <div id="pointerblur"></div>
+
+    <script>
+        let pointer=document.getElementById('pointer')
+        let pointerblur=document.getElementById('pointerblur')
+        window.addEventListener("mousemove",function(e){
+            let hit=pointer.getBoundingClientRect().width/2
+            let bit=pointer.getBoundingClientRect().height/2
+            pointer.style.left=`${e.clientX-hit+'px'}`            
+            pointer.style.top=`${e.clientY-bit+'px'}` 
+            let hitblur=pointerblur.getBoundingClientRect().width/2
+            let bitblur=pointerblur.getBoundingClientRect().height/2
+            pointerblur.style.left=`${e.clientX-hitblur+'px'}`            
+            pointerblur.style.top=`${e.clientY-bitblur+'px'}`             
+        })
+    </script>
+</body>
+</html>
